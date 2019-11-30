@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ogamita777/js-nanka/issues"
   },
-  "homepage": "https://github.com/ogamita777/js-nanka#readme"
+  "homepage": "https://github.com/ogamita777/js-nanka#readme",
+  "devDependencies": {
+    "eslint": "^6.7.1"
+  }
 }
