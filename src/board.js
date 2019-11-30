@@ -2,7 +2,7 @@ export default class {
   constructor() {
     this.m_column = 9;
     this.m_row = 9;
-    this.m_cellSize = 64;
+    this.m_cellSize = 48;
   }
 
   draw() {
