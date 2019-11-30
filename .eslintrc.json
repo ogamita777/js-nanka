@@ -6,5 +6,8 @@
   "globals": {
     "window": true,
     "document": true
+  },
+  "parserOptions": {
+    "sourceType": "module"
   }
 }
