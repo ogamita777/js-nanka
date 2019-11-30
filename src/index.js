@@ -1,6 +1,8 @@
+let shogi = {};
+
 document.addEventListener('DOMContentLoaded', function() {
-  const board = new Board();
-  board.draw();
+  shogi.board = new Board();
+  shogi.board.draw();
 }, false);
 
 class Board {
