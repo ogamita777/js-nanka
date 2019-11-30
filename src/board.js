@@ -38,9 +38,9 @@ export default class {
         ctx.stroke();
     }
 
-    // テスト
-    ctx.font = this.m_cellSize + 'pt serif';
+    // テストで駒を表示
+    ctx.font = this.m_cellSize + 'px serif';
     ctx.textAlign = 'center';
-    ctx.fillText('玉', 4 * this.m_cellSize + this.m_cellSize / 2, 8 * this.m_cellSize + this.m_cellSize / 2);
+    ctx.fillText('玉', 4 * this.m_cellSize + this.m_cellSize / 2, 9 * this.m_cellSize);
   }
 }
