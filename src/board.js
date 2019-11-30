@@ -37,5 +37,10 @@ export default class {
         ctx.lineTo(toX, toY);
         ctx.stroke();
     }
+
+    // テスト
+    ctx.font = this.m_cellSize + 'pt serif';
+    ctx.textAlign = 'center';
+    ctx.fillText('玉', 4 * this.m_cellSize + this.m_cellSize / 2, 8 * this.m_cellSize + this.m_cellSize / 2);
   }
 }
