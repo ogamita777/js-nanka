@@ -1,4 +1,4 @@
-let shogi = {};
+const shogi = {};
 
 document.addEventListener('DOMContentLoaded', function() {
   shogi.board = new Board();
