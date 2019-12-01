@@ -58,14 +58,14 @@ export default class {
 
     // @todo 後手だと文字を反転させないといけないから、そもそも文字返すのじゃ駄目なのでは？
     this.m_pieceToStringMap = new Map();
-    this.m_pieceToStringMap.set(this.WHITE_PAWN, '歩');
-    this.m_pieceToStringMap.set(this.WHITE_LANCE, '香');
-    this.m_pieceToStringMap.set(this.WHITE_KNIGHT, '桂');
-    this.m_pieceToStringMap.set(this.WHITE_SILVER, '銀');
-    this.m_pieceToStringMap.set(this.WHITE_GOLD, '金');
-    this.m_pieceToStringMap.set(this.WHITE_BISHOP, '角');
-    this.m_pieceToStringMap.set(this.WHITE_ROOK, '飛');
-    this.m_pieceToStringMap.set(this.WHITE_KING, '玉');
+    this.m_pieceToStringMap.set(this.PAWN, '歩');
+    this.m_pieceToStringMap.set(this.LANCE, '香');
+    this.m_pieceToStringMap.set(this.KNIGHT, '桂');
+    this.m_pieceToStringMap.set(this.SILVER, '銀');
+    this.m_pieceToStringMap.set(this.GOLD, '金');
+    this.m_pieceToStringMap.set(this.BISHOP, '角');
+    this.m_pieceToStringMap.set(this.ROOK, '飛');
+    this.m_pieceToStringMap.set(this.KING, '玉');
   }
 
   setPromotion(piece) {
@@ -81,7 +81,15 @@ export default class {
     return turn | piece;
   }
 
+  isTurn(turn, piece) {
+    return (this.TURN_BIT & piece) === turn;
+  }
+
   getPieceString(piece) {
     return this.m_pieceToStringMap.get(piece);
+  }
+
+  getPieceType(piece) {
+    return piece & (this.TYPE_MASK | this.PROMOTION);
   }
 }

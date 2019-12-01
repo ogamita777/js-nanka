@@ -55,15 +55,31 @@ export default class {
           continue;
         }
 
-        const pieceString = this.m_piece.getPieceString(pieceType);
+        const pieceRawType = this.m_piece.getPieceType(pieceType);
+        const pieceString = this.m_piece.getPieceString(pieceRawType);
         
         if(pieceString == undefined) {
           continue;
         }
 
+        const isBlack = this.m_piece.isTurn(this.m_piece.BLACK, pieceType);
+
+        ctx.save();
+
         const x = (coulmn + 0.5) * this.m_cellSize;
-        const y = (row + 1) * this.m_cellSize - (this.m_cellSize - this.m_pieceSize);
-        ctx.fillText(pieceString, x, y);
+
+        if(isBlack) {
+          const y = row * this.m_cellSize + (this.m_cellSize - this.m_pieceSize);
+          ctx.translate(x, y);
+
+          // 文字を180度回転させる
+          ctx.rotate(Math.PI);
+        } else {
+          const y = (row + 1) * this.m_cellSize - (this.m_cellSize - this.m_pieceSize);
+          ctx.translate(x, y);
+        }
+        ctx.fillText(pieceString, 0, 0);
+        ctx.restore();
       }
     }
   }
@@ -78,6 +94,27 @@ export default class {
     }
 
     // @todo どうしよう
+    this.m_boardArray[18] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[19] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[20] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[21] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[22] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[23] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[24] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[25] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[26] = this.m_piece.BLACK_PAWN;
+    this.m_boardArray[16] = this.m_piece.BLACK_BISHOP;
+    this.m_boardArray[10] = this.m_piece.BLACK_ROOK;
+    this.m_boardArray[0] = this.m_piece.BLACK_LANCE;
+    this.m_boardArray[1] = this.m_piece.BLACK_KNIGHT;
+    this.m_boardArray[2] = this.m_piece.BLACK_SILVER;
+    this.m_boardArray[3] = this.m_piece.BLACK_GOLD;
+    this.m_boardArray[4] = this.m_piece.BLACK_KING;
+    this.m_boardArray[5] = this.m_piece.BLACK_GOLD;
+    this.m_boardArray[6] = this.m_piece.BLACK_SILVER;
+    this.m_boardArray[7] = this.m_piece.BLACK_KNIGHT;
+    this.m_boardArray[8] = this.m_piece.BLACK_LANCE;
+
     this.m_boardArray[54] = this.m_piece.WHITE_PAWN;
     this.m_boardArray[55] = this.m_piece.WHITE_PAWN;
     this.m_boardArray[56] = this.m_piece.WHITE_PAWN;
