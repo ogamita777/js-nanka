@@ -4,7 +4,7 @@ export default class {
   constructor() {
     this.m_column = 9;
     this.m_row = 9;
-    this.m_cellSize = 48;
+    this.m_cellSize = 64;
     this.m_pieceSize = this.m_cellSize - 7;
     this.m_boardArray = new Array(this.m_column * this.m_row);
     this.m_piece = new Piece();
