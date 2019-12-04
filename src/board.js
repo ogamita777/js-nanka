@@ -51,11 +51,12 @@ export default class {
       for(let coulmn = 0; coulmn < this.m_column; coulmn++) {
         const pieceType = this.m_boardArray[row * this.m_column + coulmn];
 
-        if(pieceType == this.m_piece.BLANK) {
+        const pieceRawType = this.m_piece.getPieceType(pieceType);
+
+        if(pieceRawType == this.m_piece.BLANK) {
           continue;
         }
 
-        const pieceRawType = this.m_piece.getPieceType(pieceType);
         const pieceString = this.m_piece.getPieceString(pieceRawType);
         
         if(pieceString == undefined) {
@@ -134,6 +135,6 @@ export default class {
     this.m_boardArray[77] = this.m_piece.WHITE_GOLD;
     this.m_boardArray[78] = this.m_piece.WHITE_SILVER;
     this.m_boardArray[79] = this.m_piece.WHITE_KNIGHT;
-    this.m_boardArray[80] = this.m_piece.WHITE_LANCE;
+    this.m_boardArray[80] = this.m_piece.WHITE_PROMOTION_SILVER;
   }
 }

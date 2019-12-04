@@ -36,11 +36,11 @@ export default class {
     this.WHITE_BISHOP = this.setTurn(this.WHITE, this.BISHOP);
     this.WHITE_ROOK = this.setTurn(this.WHITE, this.ROOK);
     this.WHITE_KING = this.setTurn(this.WHITE, this.KING);
-    this.WHITE_PROMOTION_PAWN = this.setPromotion(this.WHITE, this.PROMOTION_PAWN);
-    this.WHITE_PROMOTION_LANCE = this.setPromotion(this.WHITE, this.PROMOTION_LANCE);
-    this.WHITE_PROMOTION_KNIGHT = this.setPromotion(this.WHITE, this.PROMOTION_KNIGHT);
-    this.WHITE_PROMOTION_SILVER = this.setPromotion(this.WHITE, this.PROMOTION_SILVER);
-    this.WHITE_PROMOTION_BISHOP = this.setPromotion(this.WHITE, this.PROMOTION_ROOK);
+    this.WHITE_PROMOTION_PAWN = this.setTurn(this.WHITE, this.PROMOTION_PAWN);
+    this.WHITE_PROMOTION_LANCE = this.setTurn(this.WHITE, this.PROMOTION_LANCE);
+    this.WHITE_PROMOTION_KNIGHT = this.setTurn(this.WHITE, this.PROMOTION_KNIGHT);
+    this.WHITE_PROMOTION_SILVER = this.setTurn(this.WHITE, this.PROMOTION_SILVER);
+    this.WHITE_PROMOTION_BISHOP = this.setTurn(this.WHITE, this.PROMOTION_ROOK);
 
     this.BLACK_PAWN = this.setTurn(this.BLACK, this.PAWN);
     this.BLACK_LANCE = this.setTurn(this.BLACK, this.LANCE);
@@ -50,11 +50,11 @@ export default class {
     this.BLACK_BISHOP = this.setTurn(this.BLACK, this.BISHOP);
     this.BLACK_ROOK = this.setTurn(this.BLACK, this.ROOK);
     this.BLACK_KING = this.setTurn(this.BLACK, this.KING);
-    this.BLACK_PROMOTION_PAWN = this.setPromotion(this.BLACK, this.PROMOTION_PAWN);
-    this.BLACK_PROMOTION_LANCE = this.setPromotion(this.BLACK, this.PROMOTION_LANCE);
-    this.BLACK_PROMOTION_KNIGHT = this.setPromotion(this.BLACK, this.PROMOTION_KNIGHT);
-    this.BLACK_PROMOTION_SILVER = this.setPromotion(this.BLACK, this.PROMOTION_SILVER);
-    this.BLACK_PROMOTION_BISHOP = this.setPromotion(this.BLACK, this.PROMOTION_ROOK);
+    this.BLACK_PROMOTION_PAWN = this.setTurn(this.BLACK, this.PROMOTION_PAWN);
+    this.BLACK_PROMOTION_LANCE = this.setTurn(this.BLACK, this.PROMOTION_LANCE);
+    this.BLACK_PROMOTION_KNIGHT = this.setTurn(this.BLACK, this.PROMOTION_KNIGHT);
+    this.BLACK_PROMOTION_SILVER = this.setTurn(this.BLACK, this.PROMOTION_SILVER);
+    this.BLACK_PROMOTION_BISHOP = this.setTurn(this.BLACK, this.PROMOTION_ROOK);
 
     this.m_pieceToStringMap = new Map();
     this.m_pieceToStringMap.set(this.PAWN, '歩');
