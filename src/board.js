@@ -135,6 +135,6 @@ export default class {
     this.m_boardArray[77] = this.m_piece.WHITE_GOLD;
     this.m_boardArray[78] = this.m_piece.WHITE_SILVER;
     this.m_boardArray[79] = this.m_piece.WHITE_KNIGHT;
-    this.m_boardArray[80] = this.m_piece.WHITE_PROMOTION_SILVER;
+    this.m_boardArray[80] = this.m_piece.WHITE_LANCE;
   }
 }
