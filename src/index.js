@@ -8,7 +8,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
   document.addEventListener('click', function(e) {
     const cellSize = shogi.board.m_cellSize;
-    shogi.board.promotionBoardPiece(parseInt(e.offsetX / cellSize), parseInt(e.offsetY / cellSize));
+    const coulmn = parseInt(e.offsetX / cellSize);
+    const row = parseInt(e.offsetY / cellSize);
+    shogi.board.promotionBoardPiece(coulmn, row);
     shogi.board.draw();
   }, false);
 

@@ -140,6 +140,14 @@ export default class {
 
   promotionBoardPiece(coulmn, row) {
 
+    if(coulmn > this.m_column - 1) {
+      return;
+    }
+
+    if(row > this.m_row - 1) {
+      return;
+    }
+
     const index = coulmn + row * this.m_column;
 
     if(!this.m_piece.canPromotion(this.m_boardArray[index])) {
