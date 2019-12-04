@@ -40,7 +40,8 @@ export default class {
     this.WHITE_PROMOTION_LANCE = this.setTurn(this.WHITE, this.PROMOTION_LANCE);
     this.WHITE_PROMOTION_KNIGHT = this.setTurn(this.WHITE, this.PROMOTION_KNIGHT);
     this.WHITE_PROMOTION_SILVER = this.setTurn(this.WHITE, this.PROMOTION_SILVER);
-    this.WHITE_PROMOTION_BISHOP = this.setTurn(this.WHITE, this.PROMOTION_ROOK);
+    this.WHITE_PROMOTION_BISHOP = this.setTurn(this.WHITE, this.PROMOTION_BISHOP);
+    this.WHITE_PROMOTION_ROOK = this.setTurn(this.WHITE, this.PROMOTION_ROOK);
 
     this.BLACK_PAWN = this.setTurn(this.BLACK, this.PAWN);
     this.BLACK_LANCE = this.setTurn(this.BLACK, this.LANCE);
@@ -54,7 +55,8 @@ export default class {
     this.BLACK_PROMOTION_LANCE = this.setTurn(this.BLACK, this.PROMOTION_LANCE);
     this.BLACK_PROMOTION_KNIGHT = this.setTurn(this.BLACK, this.PROMOTION_KNIGHT);
     this.BLACK_PROMOTION_SILVER = this.setTurn(this.BLACK, this.PROMOTION_SILVER);
-    this.BLACK_PROMOTION_BISHOP = this.setTurn(this.BLACK, this.PROMOTION_ROOK);
+    this.BLACK_PROMOTION_BISHOP = this.setTurn(this.BLACK, this.PROMOTION_BISHOP);
+    this.BLACK_PROMOTION_ROOK = this.setTurn(this.BLACK, this.PROMOTION_ROOK);
 
     this.m_pieceToStringMap = new Map();
     this.m_pieceToStringMap.set(this.PAWN, '歩');
@@ -69,6 +71,8 @@ export default class {
     this.m_pieceToStringMap.set(this.PROMOTION_LANCE, '杏');
     this.m_pieceToStringMap.set(this.PROMOTION_KNIGHT, '圭');
     this.m_pieceToStringMap.set(this.PROMOTION_SILVER, '全');
+    this.m_pieceToStringMap.set(this.PROMOTION_BISHOP, '馬');
+    this.m_pieceToStringMap.set(this.PROMOTION_ROOK, '竜');
   }
 
   setPromotion(piece) {
