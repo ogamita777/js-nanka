@@ -56,7 +56,6 @@ export default class {
     this.BLACK_PROMOTION_SILVER = this.setPromotion(this.BLACK, this.PROMOTION_SILVER);
     this.BLACK_PROMOTION_BISHOP = this.setPromotion(this.BLACK, this.PROMOTION_ROOK);
 
-    // @todo 後手だと文字を反転させないといけないから、そもそも文字返すのじゃ駄目なのでは？
     this.m_pieceToStringMap = new Map();
     this.m_pieceToStringMap.set(this.PAWN, '歩');
     this.m_pieceToStringMap.set(this.LANCE, '香');
@@ -66,6 +65,10 @@ export default class {
     this.m_pieceToStringMap.set(this.BISHOP, '角');
     this.m_pieceToStringMap.set(this.ROOK, '飛');
     this.m_pieceToStringMap.set(this.KING, '玉');
+    this.m_pieceToStringMap.set(this.PROMOTION_PAWN, 'と');
+    this.m_pieceToStringMap.set(this.PROMOTION_LANCE, '杏');
+    this.m_pieceToStringMap.set(this.PROMOTION_KNIGHT, '圭');
+    this.m_pieceToStringMap.set(this.PROMOTION_SILVER, '全');
   }
 
   setPromotion(piece) {
