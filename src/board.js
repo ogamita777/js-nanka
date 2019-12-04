@@ -137,4 +137,15 @@ export default class {
     this.m_boardArray[79] = this.m_piece.WHITE_KNIGHT;
     this.m_boardArray[80] = this.m_piece.WHITE_LANCE;
   }
+
+  promotionBoardPiece(coulmn, row) {
+
+    const index = coulmn + row * this.m_column;
+
+    if(!this.m_piece.canPromotion(this.m_boardArray[index])) {
+      return;
+    }
+
+    this.m_boardArray[index] ^= this.m_piece.PROMOTION;
+  }
 }

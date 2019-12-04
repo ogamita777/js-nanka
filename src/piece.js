@@ -83,6 +83,27 @@ export default class {
     return (piece & this.PROMOTION) != 0;
   }
 
+  canPromotion(piece) {
+    // @todo もっと良い方法がありそうな気がする
+    
+    const type = piece & this.TYPE_MASK;
+
+    if
+    (
+      type == this.PAWN
+      || type == this.LANCE
+      || type == this.KNIGHT
+      || type == this.SILVER
+      || type == this.BISHOP
+      || type == this.ROOK
+    ) 
+    {
+      return true;
+    }
+
+    return false;
+  }
+
   setTurn(turn, piece) {
     piece &= ~this.TURN_BIT;
     return turn | piece;
