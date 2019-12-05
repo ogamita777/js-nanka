@@ -12,7 +12,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const coulmn = parseInt(e.offsetX / cellSize);
     const row = parseInt(e.offsetY / cellSize);
 
-    shogi.board.promotionBoardPiece(coulmn, row);
+    if(shogi.board.isSelectedIndex()) {
+      shogi.board.setBoardPiece(coulmn, row);
+    } else {
+      shogi.board.setSelectedIndex(coulmn, row);
+    }
+
     shogi.board.draw();
   }, false);
 

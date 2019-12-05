@@ -8,6 +8,7 @@ export default class {
     this.m_pieceSize = this.m_cellSize - 7;
     this.m_boardArray = new Array(this.m_column * this.m_row);
     this.m_piece = new Piece();
+    this.m_selectedIndex = -1;
   }
 
   draw() {
@@ -86,6 +87,13 @@ export default class {
         ctx.restore();
       }
     }
+
+    if(this.m_selectedIndex !== -1) {
+      const coulmn = this.m_selectedIndex % this.m_column;
+      const row = parseInt(this.m_selectedIndex / this.m_row);
+      ctx.strokeStyle = 'red';
+      ctx.strokeRect(coulmn * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
+    }
   }
 
   setInitBoard() {
@@ -158,5 +166,46 @@ export default class {
     }
 
     this.m_boardArray[index] ^= this.m_piece.PROMOTION;
+  }
+
+  isSelectedIndex() {
+    return this.m_selectedIndex !== -1;
+  }
+
+  setSelectedIndex(coulmn, row) {
+
+    if(coulmn > this.m_column - 1) {
+      return;
+    }
+
+    if(row > this.m_row - 1) {
+      return;
+    }
+
+    const index = coulmn + row * this.m_column;
+
+    if(this.m_boardArray[index] === this.m_piece.BLANK) {
+      return;
+    }
+
+    this.m_selectedIndex = index;
+  }
+
+  setBoardPiece(coulmn, row) {
+
+    if(coulmn > this.m_column - 1) {
+      return false;
+    }
+
+    if(row > this.m_row - 1) {
+      return false;
+    }
+
+    const index = coulmn + row * this.m_column;
+
+    this.m_boardArray[index] = this.m_boardArray[this.m_selectedIndex];
+    this.m_boardArray[this.m_selectedIndex] = this.m_piece.BLANK;
+
+    this.m_selectedIndex = -1;
   }
 }
