@@ -89,10 +89,10 @@ export default class {
     }
 
     if(this.m_selectedIndex !== -1) {
-      const coulmn = this.m_selectedIndex % this.m_column;
+      const column = this.m_selectedIndex % this.m_column;
       const row = parseInt(this.m_selectedIndex / this.m_row);
       ctx.strokeStyle = 'red';
-      ctx.strokeRect(coulmn * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
+      ctx.strokeRect(column * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
     }
   }
 
@@ -100,8 +100,8 @@ export default class {
     this.m_boardArray = new Array(this.m_column * this.m_row);
 
     for(let row = 0; row < this.m_row; row++) {
-      for(let coulmn = 0; coulmn < this.m_column; coulmn++) {
-        this.m_boardArray[row * this.m_coulmn + coulmn] = this.m_piece.BLANK;
+      for(let column = 0; column < this.m_column; column++) {
+        this.m_boardArray[row * this.m_column + column] = this.m_piece.BLANK;
       }
     }
 
@@ -202,6 +202,18 @@ export default class {
     }
 
     const index = coulmn + row * this.m_column;
+
+    // @todo ここでやることではない気がする
+    if
+    (
+      this.m_boardArray[index] !== this.m_piece.BLANK 
+      && this.m_piece.sameTurn(this.m_boardArray[index], this.m_boardArray[this.m_selectedIndex])
+    )
+    {
+      console.log(this.m_boardArray[index]);
+      this.m_selectedIndex = index;
+      return false;
+    }
 
     this.m_boardArray[index] = this.m_boardArray[this.m_selectedIndex];
     this.m_boardArray[this.m_selectedIndex] = this.m_piece.BLANK;

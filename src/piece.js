@@ -2,7 +2,7 @@ export default class {
 
   constructor() {
     // @todo 何かもっと良い書き方がありそう
-    
+
     this.BLANK = 0;
     this.PAWN = 1;
     this.LANCE = 2;
@@ -111,6 +111,10 @@ export default class {
 
   isTurn(turn, piece) {
     return (this.TURN_BIT & piece) === turn;
+  }
+
+  sameTurn(myPiece, otherPiece) {
+    return (this.TURN_BIT & myPiece) === (this.TURN_BIT & otherPiece);
   }
 
   getPieceString(piece) {
