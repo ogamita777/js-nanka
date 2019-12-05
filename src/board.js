@@ -17,6 +17,9 @@ export default class {
       return;
     }
 
+    canvas.width = this.m_cellSize * this.m_column;
+    canvas.height = this.m_cellSize * this.m_row;
+
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, this.m_column * this.m_cellSize, this.m_row * this.m_cellSize);
     ctx.strokeStyle = 'black';
