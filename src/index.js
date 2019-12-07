@@ -7,15 +7,17 @@ document.addEventListener('DOMContentLoaded', function() {
   shogi.board.draw();
 
   document.addEventListener('click', function(e) {
-    const cellSize = shogi.board.m_cellSize;
 
-    const coulmn = parseInt(e.offsetX / cellSize);
-    const row = parseInt(e.offsetY / cellSize);
+    const boardIndex = shogi.board.getBoardIndex(e.offsetX, e.offsetY);
+
+    if(boardIndex === null) {
+      return;
+    }
 
     if(shogi.board.isSelectedIndex()) {
-      shogi.board.setBoardPiece(coulmn, row);
+      shogi.board.setBoardPiece(boardIndex);
     } else {
-      shogi.board.setSelectedIndex(coulmn, row);
+      shogi.board.setSelectedIndex(boardIndex);
     }
 
     shogi.board.draw();

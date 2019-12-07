@@ -9,6 +9,7 @@ export default class {
     this.m_boardArray = new Array(this.m_column * this.m_row);
     this.m_piece = new Piece();
     this.m_selectedIndex = -1;
+    this.m_offsetY = this.m_cellSize * 2;
   }
 
   draw() {
@@ -18,12 +19,17 @@ export default class {
       return;
     }
 
-    canvas.width = this.m_cellSize * this.m_column;
-    canvas.height = this.m_cellSize * this.m_row;
+    const width = this.m_cellSize * this.m_column;
+    const height = this.m_cellSize * this.m_row + this.m_offsetY;
+
+    canvas.width = width;
+    canvas.height = height;
 
     const ctx = canvas.getContext('2d');
-    ctx.clearRect(0, 0, this.m_column * this.m_cellSize, this.m_row * this.m_cellSize);
+    ctx.clearRect(0, 0, width, height);
     
+    ctx.translate(0, this.m_offsetY / 2);
+
     if(this.m_selectedIndex !== -1) {
       ctx.save();
 
@@ -177,18 +183,7 @@ export default class {
     return this.m_selectedIndex !== -1;
   }
 
-  setSelectedIndex(coulmn, row) {
-
-    if(coulmn > this.m_column - 1) {
-      return;
-    }
-
-    if(row > this.m_row - 1) {
-      return;
-    }
-
-    const index = coulmn + row * this.m_column;
-
+  setSelectedIndex(index) {
     if(this.m_boardArray[index] === this.m_piece.BLANK) {
       return;
     }
@@ -196,17 +191,7 @@ export default class {
     this.m_selectedIndex = index;
   }
 
-  setBoardPiece(coulmn, row) {
-
-    if(coulmn > this.m_column - 1) {
-      return false;
-    }
-
-    if(row > this.m_row - 1) {
-      return false;
-    }
-
-    const index = coulmn + row * this.m_column;
+  setBoardPiece(index) {
 
     // @todo ここでやることではない気がする
     if
@@ -224,5 +209,21 @@ export default class {
     this.m_boardArray[this.m_selectedIndex] = this.m_piece.BLANK;
 
     this.m_selectedIndex = -1;
+  }
+
+  getBoardIndex(x, y) {
+    const coulmn = parseInt(x / this.m_cellSize);
+    const row = parseInt((y - (this.m_offsetY / 2)) / this.m_cellSize);
+
+    if(coulmn > this.m_column - 1) {
+      return null;
+    }
+
+    if(row > this.m_row - 1) {
+      return null;
+    }
+
+    const index = coulmn + row * this.m_column;
+    return index;
   }
 }
