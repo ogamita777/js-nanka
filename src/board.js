@@ -23,6 +23,18 @@ export default class {
 
     const ctx = canvas.getContext('2d');
     ctx.clearRect(0, 0, this.m_column * this.m_cellSize, this.m_row * this.m_cellSize);
+    
+    if(this.m_selectedIndex !== -1) {
+      ctx.save();
+
+      const column = this.m_selectedIndex % this.m_column;
+      const row = parseInt(this.m_selectedIndex / this.m_row);
+      ctx.fillStyle = 'red';
+      ctx.fillRect(column * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
+      
+      ctx.restore();
+    }
+    
     ctx.strokeStyle = 'black';
 
     for(let i = 0; i < this.m_column + 1; i++) {
@@ -86,13 +98,6 @@ export default class {
         ctx.fillText(pieceString, 0, 0);
         ctx.restore();
       }
-    }
-
-    if(this.m_selectedIndex !== -1) {
-      const column = this.m_selectedIndex % this.m_column;
-      const row = parseInt(this.m_selectedIndex / this.m_row);
-      ctx.strokeStyle = 'red';
-      ctx.strokeRect(column * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
     }
   }
 
