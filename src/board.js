@@ -17,6 +17,7 @@ export default class {
     }
 
     this.m_selectedIndex = -1;
+    this.m_lastSelectedIndex = -1;
     this.m_boardOffsetY = this.m_cellSize * 1.5;
     this.m_offsetY = this.m_cellSize * 3;
   }
@@ -44,6 +45,17 @@ export default class {
         const column = this.m_selectedIndex % this.m_column;
         const row = parseInt(this.m_selectedIndex / this.m_row);
         ctx.fillStyle = 'red';
+        ctx.fillRect(column * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
+      }
+      ctx.restore();
+    }
+
+    if(this.m_lastSelectedIndex !== -1) {
+      ctx.save();
+      {
+        const column = this.m_lastSelectedIndex % this.m_column;
+        const row = parseInt(this.m_lastSelectedIndex / this.m_row);
+        ctx.fillStyle = 'orange';
         ctx.fillRect(column * this.m_cellSize, row * this.m_cellSize, this.m_cellSize, this.m_cellSize);
       }
       ctx.restore();
@@ -275,6 +287,7 @@ export default class {
     this.m_boardArray[index] = this.m_boardArray[this.m_selectedIndex];
     this.m_boardArray[this.m_selectedIndex] = this.m_piece.BLANK;
 
+    this.m_lastSelectedIndex = index;
     this.m_selectedIndex = -1;
   }
 
