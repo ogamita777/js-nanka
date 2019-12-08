@@ -133,7 +133,7 @@ export default class {
 
         const isBlack = this.m_piece.isTurn(this.m_piece.BLACK, key);
   
-        const x = this.m_cellSize * (key & this.m_piece.TYPE_MASK);
+        const x = this.m_cellSize * ((key & this.m_piece.TYPE_MASK) - 0.5);
   
         if(isBlack) {
           const y = -this.m_cellSize;
