@@ -1,5 +1,10 @@
 import Piece from "./piece.js";
 
+/**
+ * 盤
+ * 
+ * @module
+ */
 export default class {
   constructor() {
     this.m_column = 9;
@@ -22,6 +27,9 @@ export default class {
     this.m_offsetY = this.m_cellSize * 3;
   }
 
+  /**
+   * 盤を描画する
+   */
   draw() {
     const canvas = document.getElementById('board');
 
@@ -175,6 +183,9 @@ export default class {
     }
   }
 
+  /**
+   * 盤の初期状態を設定する
+   */
   setInitBoard() {
     this.m_boardArray = new Array(this.m_column * this.m_row);
 
@@ -228,6 +239,9 @@ export default class {
     this.m_boardArray[80] = this.m_piece.WHITE_LANCE;
   }
 
+  /**
+   * 盤の指定の駒を成る
+   */
   promotionBoardPiece(coulmn, row) {
 
     if(coulmn > this.m_column - 1) {
@@ -259,6 +273,9 @@ export default class {
     this.m_selectedIndex = index;
   }
 
+  /**
+   * 盤の駒を移動する
+   */
   setBoardPiece(index) {
 
     // @todo ここでやることではない気がする
@@ -291,6 +308,9 @@ export default class {
     this.m_selectedIndex = -1;
   }
 
+  /**
+   * 盤のインデックスを取得する
+   */
   getBoardIndex(x, y) {
     const coulmn = parseInt(x / this.m_cellSize);
     const row = parseInt((y - (this.m_offsetY / 2)) / this.m_cellSize);

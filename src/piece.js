@@ -1,3 +1,8 @@
+/**
+ * 駒
+ * 
+ * @module
+ */
 export default class {
 
   constructor() {
@@ -75,14 +80,23 @@ export default class {
     this.m_pieceToStringMap.set(this.PROMOTION_ROOK, '竜');
   }
 
+  /**
+   * 成る
+   */
   setPromotion(piece) {
     return piece | this.PROMOTION;
   }
 
+  /**
+   * 成っているか
+   */
   isPromotion(piece) {
     return (piece & this.PROMOTION) != 0;
   }
 
+  /**
+   * 成ることができる駒の種類か
+   */
   canPromotion(piece) {
     // @todo もっと良い方法がありそうな気がする
 
