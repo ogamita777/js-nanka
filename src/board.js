@@ -86,7 +86,7 @@ export default class {
     }
 
     // テストで駒を表示
-    ctx.font = this.m_pieceSize + 'px serif';
+    ctx.font = this.m_pieceSize + "px 'Noto Serif JP'";
     ctx.textAlign = 'center';
 
     for(let row = 0; row < this.m_row; row++) {
@@ -165,7 +165,7 @@ export default class {
           {
             const captureFontSize = this.m_pieceSize / 2;
             ctx.translate(0, captureFontSize);
-            ctx.font = captureFontSize + 'px serif';
+            ctx.font = captureFontSize + "px 'Noto Serif JP'";
             ctx.fillText(value, 0, 0);
           }
           ctx.restore();
